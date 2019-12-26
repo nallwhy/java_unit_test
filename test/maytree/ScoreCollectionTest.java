@@ -1,8 +1,8 @@
 package maytree;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.junit.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 public class ScoreCollectionTest {
   @Test
@@ -13,6 +13,6 @@ public class ScoreCollectionTest {
 
     int result = collection.arithmeticMean();
 
-    assertThat(result, equalTo(6));
+    assertEquals(result, 6);
   }
 }

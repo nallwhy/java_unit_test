@@ -1,11 +1,11 @@
 package maytree;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.logging.Logger;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ProfileTest {
   static private Logger logger = Logger.getLogger(ProfileTest.class.getName());
@@ -14,7 +14,7 @@ public class ProfileTest {
   private BooleanQuestion question;
   private Criteria criteria;
 
-  @Before
+  @BeforeEach
   public void create() {
     this.profile = new Profile("Bull Hockey, Inc.");
     this.question = new BooleanQuestion(1, "Got bounses?");
