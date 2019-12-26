@@ -1,5 +1,6 @@
 package maytree;
 
+import static com.google.common.truth.Truth.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,6 @@ public class ScoreCollectionTest {
 
     int result = collection.arithmeticMean();
 
-    assertEquals(result, 6);
+    assertThat(result).isEqualTo(6);
   }
 }

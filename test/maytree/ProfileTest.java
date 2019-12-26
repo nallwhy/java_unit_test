@@ -1,5 +1,7 @@
 package maytree;
 
+import static com.google.common.truth.Truth.assertThat;
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.logging.Logger;
@@ -33,7 +35,7 @@ public class ProfileTest {
 
     boolean matches = profile.matches(this.criteria);
 
-    assertFalse(matches);
+    assertThat(matches).isFalse();
   }
 
   @Test
@@ -46,6 +48,6 @@ public class ProfileTest {
 
     boolean matches = profile.matches(this.criteria);
 
-    assertTrue(matches);
+    assertThat(matches).isTrue();
   }
 }
