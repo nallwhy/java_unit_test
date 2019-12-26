@@ -7,4 +7,4 @@
  * in the user manual at https://docs.gradle.org/5.5/userguide/multi_project_builds.html
  */
 
-rootProject.name = "my_code"
+rootProject.name = "java_unit_test_rumbl"

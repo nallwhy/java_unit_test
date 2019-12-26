@@ -6,7 +6,7 @@
  */
 
 plugins {
-  id("java")
+  java
 }
 
 sourceSets {
