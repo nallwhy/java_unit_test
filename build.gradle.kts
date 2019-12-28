@@ -28,6 +28,7 @@ repositories {
 }
 
 dependencies {
+  implementation("org.hibernate:hibernate-entitymanager:5.4.10.Final")
   testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
   testImplementation("com.google.truth:truth:1.0")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
