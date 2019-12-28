@@ -12,13 +12,13 @@ plugins {
 sourceSets {
   main {
     java {
-      srcDir("src/maytree")
+      srcDir("src/main/java")
     }
   }
 
   test {
     java {
-      srcDir("test/maytree")
+      srcDir("src/test/java")
     }
   }
 }
