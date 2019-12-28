@@ -1,4 +1,4 @@
-package maytree;
+package maytree.domain;
 
 public class Criterion implements Scoreable {
    private Weight weight;

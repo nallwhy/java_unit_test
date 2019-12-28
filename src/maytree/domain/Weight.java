@@ -1,4 +1,4 @@
-package maytree;
+package maytree.domain;
 
 public enum Weight {
    MustMatch(Integer.MAX_VALUE), VeryImportant(5000), Important(1000), WouldPrefer(100), DontCare(0);

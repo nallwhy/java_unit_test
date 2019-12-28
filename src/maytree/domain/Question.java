@@ -1,4 +1,4 @@
-package maytree;
+package maytree.domain;
 
 public abstract class Question {
    private String text;

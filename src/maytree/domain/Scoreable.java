@@ -1,4 +1,4 @@
-package maytree;
+package maytree.domain;
 
 @FunctionalInterface
 public interface Scoreable {

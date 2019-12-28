@@ -1,4 +1,4 @@
-package maytree;
+package maytree.domain;
 
 public enum Bool {
    False(0),

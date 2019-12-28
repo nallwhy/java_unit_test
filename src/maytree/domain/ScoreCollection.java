@@ -1,4 +1,4 @@
-package maytree;
+package maytree.domain;
 
 import java.util.ArrayList;
 import java.util.List;
