@@ -1,8 +1,30 @@
 package maytree.domain;
 
+import javax.persistence.*;
+import java.util.Arrays;
+import java.util.List;
+
+@Entity
+@DiscriminatorValue(value = "percentile")
 public class PercentileQuestion extends Question {
-    public PercentileQuestion(int id, String text, String[] answerChoices) {
-        super(id, text, answerChoices);
+    private static final long serialVersionUID = 1L;
+
+    @ElementCollection
+    @CollectionTable(name = "answer_choices", joinColumns = @JoinColumn(name = "question_id"))
+    private List<String> answerChoices;
+
+    public PercentileQuestion() {}
+    public PercentileQuestion(String text, String[] answerChoices) {
+        super(text);
+        this.answerChoices = Arrays.asList(answerChoices);
+    }
+
+    public List<String> getAnswerChoices() {
+        return answerChoices;
+    }
+
+    public void setAnswerChoices(List<String> answerChoices) {
+        this.answerChoices = answerChoices;
     }
 
     @Override

@@ -1,34 +1,71 @@
 package maytree.domain;
 
-public abstract class Question {
+import javax.persistence.*;
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.List;
+
+@Entity
+@Table(name = "questions")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type")
+public abstract class Question implements Serializable, Persistable {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, nullable = false)
+    private Integer id;
+
+    @Column
     private String text;
-    private String[] answerChoices;
-    private int id;
 
-    public Question(int id, String text, String[] answerChoices) {
-        this.id = id;
+    @Column
+    private Instant instant;
+
+    public Question() {}
+    public Question(String text) {
         this.text = text;
-        this.answerChoices = answerChoices;
     }
 
-    public String getText() {
-        return text;
-    }
+    public abstract List<String> getAnswerChoices();
+    public abstract boolean match(int expected, int actual);
 
-    public String getAnswerChoice(int i) {
-        return answerChoices[i];
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+
+    public String getText() { return text; }
+    public void setText(String text) { this.text = text; }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder("Question #" + getId() + ": " + getText());
+        getAnswerChoices().forEach(choice -> s.append("\t").append(choice));
+        return s.toString();
     }
 
     public boolean match(Answer answer) {
         return false;
     }
 
-    abstract public boolean match(int expected, int actual);
+    public String getAnswerChoice(int i) {
+        return getAnswerChoices().get(i);
+    }
 
     public int indexOf(String matchingAnswerChoice) {
-        for (int i = 0; i < answerChoices.length; i++)
-            if (answerChoices[i].equals(matchingAnswerChoice))
+        for (int i = 0; i < getAnswerChoices().size(); i++)
+            if (getAnswerChoice(i).equals(matchingAnswerChoice))
                 return i;
         return -1;
+    }
+
+    @Override
+    public Instant getCreateTimestamp() {
+        return instant;
+    }
+
+    @Override
+    public void setCreateTimestamp(Instant instant) {
+        this.instant = instant;
     }
 }

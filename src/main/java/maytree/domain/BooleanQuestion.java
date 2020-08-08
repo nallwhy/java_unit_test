@@ -1,8 +1,23 @@
 package maytree.domain;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import java.util.Arrays;
+import java.util.List;
+
+@Entity
+@DiscriminatorValue(value = "boolean")
 public class BooleanQuestion extends Question {
-    public BooleanQuestion(int id, String text) {
-        super(id, text, new String[] { "No", "Yes" });
+    private static final long serialVersionUID = 1L;
+
+    public BooleanQuestion() {}
+    public BooleanQuestion(String text) {
+        super(text);
+    }
+
+    @Override
+    public List<String> getAnswerChoices() {
+        return Arrays.asList(new String[] { "No", "Yes" });
     }
 
     @Override
